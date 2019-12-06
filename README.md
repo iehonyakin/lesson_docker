@@ -82,6 +82,16 @@ Commercial support is available at
 
 
 
+#####################################################################
+выгрузил, забрать можно так:     docker pull iehonyakin/otus_docker
+https://hub.docker.com/r/iehonyakin/otus_docker
+
+docker tag 7464c490c997 iehonyakin/otus_docker:my_commi
+docker push iehonyakin/otus_docker
+
+
+
+
 
 
 
