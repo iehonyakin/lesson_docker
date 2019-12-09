@@ -70,7 +70,7 @@ Commercial support is available at
 * https://hub.docker.com/r/iehonyakin/otus_docker
 
 ### команды для выкгрузки
-* docker tag 7464c490c997 iehonyakin/otus_docker:my_commi
+* docker tag 2f916d78d97c iehonyakin/otus_docker:my_commit2
 * docker push iehonyakin/otus_docker
 
 
