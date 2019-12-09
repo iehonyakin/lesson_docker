@@ -1,44 +1,31 @@
-# Lesson_docker H1
-## Otus docker H2
+# Lesson_docker 
+## Otus docker 
 
+Установил docker  в директорию урока.
+* yum install docker
 
-* установил docker  в директорию урока.
-yum install docker
+создал Dockerfile, создал минимальную конфигурацию Nginx +Alpine.
+Что бы не коммитеть в образ, создал файл index.html, копирую его командой
+* COPY index.html /usr/share/nginx/html/index.html
 
-* нашел Dockerfile, подредактировал его.
-https://github.com/nginxinc/docker-nginx/blob/master/stable/alpine/Dockerfile
-COPY index.html /usr/share/nginx/html/index.html
-* создал файл index.html, куда прописал свои данные.
-###################################################################################
-</style>
-</head>
-<body>
-<h1>Welcome to nginx IGOR HONYAKIN!</h1>asdfghjQQ
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
+Заменил приветствие на свое.
+<h5>Welcome to nginx IGOR HONYAKIN!</h5>
 
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
+Запустил сборку образа
+* docker build -t nginx_alpine:test1 .
 
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-###################################################################################
+наше собравшийся образ 
+* docker images
 
-* запустил сборку образа
-docker build -t nginx_my .
+запустил контейнер 
+* docker run -d -p 80:80 2f916d78d97c
 
-* наше собравшийся образ 
-docker images
-
-*запустил контейнер 
-docker run -d -p 80:80 nginx_my
-* подключился к нему 
-docker exec -it 7464c490c997 sh
+подключился к нему 
+* docker exec -it 2f916d78d97c sh
 
 Проверка работы
+
+
 ####################################################################################
 [root@srv-centos-hi lesson_docker]# curl http://localhost
 CTYPE html>
@@ -70,24 +57,22 @@ Commercial support is available at
 
 [root@srv-centos-hi lesson_docker]#
 
-#########################################################################
 
+## Определите разницу между контейнером и образом
 
-#########################################################################
-#Определите разницу между контейнером и образом
-####################################################################
 - Образ подобие ISO, который содержит дистрибутивы, данные и т.п., образ можно перенести на другой хост и запустить с него контейнер.
 - Контейнер - излированная среда, в коророй выполняются сервисы.
 - Думаю, что можно собрать ядро, причин к обратному не вижу.
 
 
 
-#####################################################################
-выгрузил, забрать можно так:     docker pull iehonyakin/otus_docker
-https://hub.docker.com/r/iehonyakin/otus_docker
+# Выгрузил, забрать можно так:
+* docker pull iehonyakin/otus_docker
+* https://hub.docker.com/r/iehonyakin/otus_docker
 
-docker tag 7464c490c997 iehonyakin/otus_docker:my_commi
-docker push iehonyakin/otus_docker
+# команды для выкгрузки
+* docker tag 7464c490c997 iehonyakin/otus_docker:my_commi
+* docker push iehonyakin/otus_docker
 
 
 
