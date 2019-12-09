@@ -1,28 +1,28 @@
 # Lesson_docker Otus docker 
 
-## Установил docker  в директорию урока.
+### Установил docker  в директорию урока.
 * yum install docker
 
-## создал Dockerfile, создал минимальную конфигурацию Nginx +Alpine.
+### создал Dockerfile, создал минимальную конфигурацию Nginx +Alpine.
 Что бы не коммитеть в образ, создал файл index.html, копирую его командой
 * COPY index.html /usr/share/nginx/html/index.html
 
-## Заменил приветствие на свое.
+### Заменил приветствие на свое.
 <h5>Welcome to nginx IGOR HONYAKIN!</h5>
 
-## Запустил сборку образа
+### Запустил сборку образа
 * docker build -t nginx_alpine:test1 .
 
-## нашел собравшийся образ 
+### нашел собравшийся образ 
 * docker images
 
-## запустил контейнер 
+### запустил контейнер 
 * docker run -d -p 80:80 2f916d78d97c
 
-## подключился к нему 
+### подключился к нему 
 * docker exec -it 2f916d78d97c sh
 
-#Проверка работы
+### Проверка работы
 
 
 ####################################################################################
@@ -54,10 +54,10 @@ Commercial support is available at
 </html>
 
 
-[root@srv-centos-hi lesson_docker]#
+[root@srv-centos-hi lesson_docker]
 
 
-## Определите разницу между контейнером и образом
+### Определите разницу между контейнером и образом
 
 - Образ подобие ISO, который содержит дистрибутивы, данные и т.п., образ можно перенести на другой хост и запустить с него контейнер.
 - Контейнер - излированная среда, в коророй выполняются сервисы.
@@ -65,11 +65,11 @@ Commercial support is available at
 
 
 
-## Выгрузил, забрать можно так:
+### Выгрузил, забрать можно так:
 * docker pull iehonyakin/otus_docker
 * https://hub.docker.com/r/iehonyakin/otus_docker
 
-## команды для выкгрузки
+### команды для выкгрузки
 * docker tag 7464c490c997 iehonyakin/otus_docker:my_commi
 * docker push iehonyakin/otus_docker
 
